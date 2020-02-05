@@ -23,7 +23,7 @@ jobs:
           echo "::set-env name=NAME::$(date +%Y%m%d%H%M)"
           echo "::set-env name=TAG_NAME::$(date +%Y%m%d%H%M)"
           echo "::set-env name=GOPATH::$(dirname $GITHUB_WORKSPACE)"
-          echo "::set-env name=REPO_URL::github.com/v2ray/domain-list-community"
+          echo "::set-env name=REPO_URL::github.com/yuanmomo/domain-list-community"
           echo "::add-path::$(dirname $GITHUB_WORKSPACE)/bin"
         shell: bash
 
