@@ -142,7 +142,7 @@ func parseEntry(line string) (Entry, error) {
 func DetectPath(path string) (string, error) {
 	arrPath := strings.Split(path, string(filepath.ListSeparator))
 	for _, content := range arrPath {
-		fullPath := filepath.Join(content, "src", "github.com", "v2ray", "domain-list-community", "data")
+		fullPath := filepath.Join(content, "src", "github.com", "yuanmomo", "domain-list-community", "data")
 		_, err := os.Stat(fullPath)
 		if err == nil || os.IsExist(err) {
 			return fullPath, nil
