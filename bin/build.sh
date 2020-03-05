@@ -4,6 +4,8 @@ current_dir=$(cd "$(dirname "$0")";pwd)
 root_dir=${current_dir}/..
 repo_url="github.com/yuanmomo/domain-list-community"
 speedtest_xml=${current_dir}/servers-source.xml
+export http_proxy=http://127.0.0.1:1186;
+export https_proxy=http://127.0.0.1:1186;
 
 if [[ ! $(command -v ${current_dir}/domain-list-community) ]] ; then
   export GO111MODULE=on
