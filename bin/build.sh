@@ -19,7 +19,7 @@ if [[ ! -e "${GOPATH}/src/${repo_url}" ]] ; then
 fi
 
 echo "downloading speedtest file ....."
-curl --socks5 127.0.0.1:1087 -L -o "${speedtest_xml}" "https://c.speedtest.net/speedtest-servers-static.php" -H 'Accept-Encoding: gzip' --compressed
+curl -L -o "${speedtest_xml}" "https://c.speedtest.net/speedtest-servers-static.php" -H 'Accept-Encoding: gzip' --compressed
 perl -ne '/host="(.+):[0-9]+"/ && print "full:$1\n"' "${speedtest_xml}" | perl -ne 'print if not /^(full:([0-9]{1,3}\.){3}[0-9]{1,3})$/' | perl -ne 'print lc' | sort --ignore-case -u >> "${GOPATH}"/src/${repo_url}/data/ookla-speedtest
 
 # exec
@@ -28,7 +28,7 @@ echo "exec  domain-list-community command ....."
 
 echo "move dlc.dat to v2ray bin dir....."
 chmod -x "${root_dir}"/dlc.dat
-mv "${root_dir}"/dlc.dat $(/usr/local/bin/greadlink -f /usr/local/bin/v2ray | xargs dirname)/geosite.dat
+mv "${root_dir}"/dlc.dat ${root_dir}/publish/geosite.dat
 
 echo "reset files....."
 git checkout HEAD -- ${root_dir}/data/ookla-speedtest
